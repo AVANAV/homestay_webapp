@@ -1,0 +1,197 @@
+/**
+ * Mountain Homestay — Design System
+ *
+ * SPACING PHILOSOPHY
+ * ------------------
+ * Luxury hospitality breathes. We favor generous negative space over
+ * density: wide section gutters, tall vertical rhythm between story blocks,
+ * and restrained component padding so photography and landscape feel cinematic.
+ *
+ * - Use `section` / `section-lg` for page-level vertical padding (hero → footer).
+ * - Use `gutter` for horizontal page margins (scales with viewport).
+ * - Use `stack-*` for consistent vertical gaps inside a content column.
+ * - Prefer multiples of 4px at the micro level; jump to 1.5×–2× at the macro level.
+ * - On large screens, cap text width (~65ch) and let margins absorb extra width.
+ */
+
+@theme inline {
+  /* —— Brand palette (direct utilities: bg-pine, text-copper, etc.) —— */
+  --color-pine-50: oklch(0.97 0.02 158);
+  --color-pine-100: oklch(0.92 0.03 158);
+  --color-pine-200: oklch(0.84 0.04 158);
+  --color-pine-300: oklch(0.72 0.05 158);
+  --color-pine-400: oklch(0.58 0.06 158);
+  --color-pine-500: oklch(0.48 0.07 158);
+  --color-pine-600: oklch(0.40 0.07 158);
+  --color-pine-700: oklch(0.34 0.06 158);
+  --color-pine-800: oklch(0.28 0.05 158);
+  --color-pine-900: oklch(0.22 0.04 158);
+  --color-pine-950: oklch(0.16 0.03 158);
+
+  --color-parchment: oklch(0.97 0.012 88);
+  --color-oat: oklch(0.93 0.018 85);
+  --color-linen: oklch(0.90 0.022 82);
+  --color-night: oklch(0.17 0.028 158);
+  --color-charcoal: oklch(0.24 0.025 55);
+
+  --color-ink: oklch(0.24 0.025 55);
+  --color-stone: oklch(0.50 0.02 55);
+  --color-mist: oklch(0.72 0.015 80);
+  --color-fog: oklch(0.88 0.012 85);
+
+  --color-copper: oklch(0.55 0.11 58);
+  --color-copper-light: oklch(0.72 0.10 62);
+  --color-copper-muted: oklch(0.94 0.03 65);
+  --color-ember: oklch(0.62 0.14 48);
+  --color-sage: oklch(0.68 0.06 145);
+
+  /* —— Typography scale (utilities: text-display, text-h1, …) —— */
+  --text-display: clamp(3rem, 4.5vw + 1.25rem, 5.5rem);
+  --text-display--line-height: 1.05;
+  --text-display--letter-spacing: -0.03em;
+  --text-display--font-weight: 500;
+
+  /* Hero display — slightly smaller & tighter on phones, scales to full display */
+  --text-hero-display: clamp(2.375rem, 4.2vw + 0.85rem, 5.5rem);
+  --text-hero-display--line-height: 1.06;
+  --text-hero-display--letter-spacing: -0.028em;
+  --text-hero-display--font-weight: 500;
+
+  --text-h1: clamp(2.25rem, 3vw + 1rem, 3.75rem);
+  --text-h1--line-height: 1.1;
+  --text-h1--letter-spacing: -0.025em;
+  --text-h1--font-weight: 500;
+
+  --text-h2: clamp(1.75rem, 2vw + 0.75rem, 2.75rem);
+  --text-h2--line-height: 1.15;
+  --text-h2--letter-spacing: -0.02em;
+  --text-h2--font-weight: 500;
+
+  --text-h3: clamp(1.375rem, 1.25vw + 0.875rem, 1.75rem);
+  --text-h3--line-height: 1.25;
+  --text-h3--letter-spacing: -0.015em;
+  --text-h3--font-weight: 500;
+
+  --text-h4: 1.25rem;
+  --text-h4--line-height: 1.35;
+  --text-h4--letter-spacing: -0.01em;
+  --text-h4--font-weight: 500;
+
+  --text-lead: clamp(1.125rem, 0.5vw + 1rem, 1.375rem);
+  --text-lead--line-height: 1.6;
+  --text-lead--letter-spacing: 0.01em;
+  --text-lead--font-weight: 400;
+
+  --text-body: 1rem;
+  --text-body--line-height: 1.65;
+  --text-body--letter-spacing: 0.005em;
+
+  --text-small: 0.875rem;
+  --text-small--line-height: 1.55;
+  --text-small--letter-spacing: 0.01em;
+
+  --text-caption: 0.75rem;
+  --text-caption--line-height: 1.5;
+  --text-caption--letter-spacing: 0.04em;
+  --text-caption--font-weight: 500;
+
+  --text-overline: 0.6875rem;
+  --text-overline--line-height: 1.4;
+  --text-overline--letter-spacing: 0.14em;
+  --text-overline--font-weight: 500;
+
+  /* —— Spacing tokens (utilities: p-section, gap-stack, px-gutter) —— */
+  --spacing-gutter: clamp(1.25rem, 4vw, 3rem);
+  --spacing-section: clamp(3rem, 6vw, 7rem);
+  --spacing-section-lg: clamp(4.5rem, 10vw, 10rem);
+  --spacing-section-compact: clamp(2rem, 4vw, 3.5rem);
+  --spacing-stack-xs: 0.5rem;
+  --spacing-stack-sm: 1rem;
+  --spacing-stack: 1.5rem;
+  --spacing-stack-md: 2.5rem;
+  --spacing-stack-lg: 4rem;
+  --spacing-stack-xl: 6rem;
+
+  --radius-homestay: 0.5rem;
+
+  /* —— Container widths (utilities: max-w-homestay, max-w-cinema) —— */
+  --container-homestay: 90rem;
+  --container-cinema: 100rem;
+}
+
+@layer utilities {
+  .font-display {
+    font-family: var(--font-heading), ui-serif, Georgia, "Times New Roman", serif;
+  }
+
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .text-pretty {
+    text-wrap: pretty;
+  }
+
+  .prose-width {
+    max-width: 65ch;
+  }
+
+  .section-padding {
+    padding-block: var(--spacing-section);
+    padding-inline: var(--spacing-gutter);
+  }
+
+  .section-padding-lg {
+    padding-block: var(--spacing-section-lg);
+    padding-inline: var(--spacing-gutter);
+  }
+
+  .text-hero-display {
+    font-size: var(--text-hero-display);
+    line-height: var(--text-hero-display--line-height);
+    letter-spacing: var(--text-hero-display--letter-spacing);
+    font-weight: var(--text-hero-display--font-weight);
+  }
+}
+
+@layer base {
+  h1 {
+    font-family: var(--font-heading), ui-serif, Georgia, serif;
+    font-size: var(--text-h1);
+    line-height: var(--text-h1--line-height);
+    letter-spacing: var(--text-h1--letter-spacing);
+    font-weight: var(--text-h1--font-weight);
+    text-wrap: balance;
+  }
+
+  h2 {
+    font-family: var(--font-heading), ui-serif, Georgia, serif;
+    font-size: var(--text-h2);
+    line-height: var(--text-h2--line-height);
+    letter-spacing: var(--text-h2--letter-spacing);
+    font-weight: var(--text-h2--font-weight);
+    text-wrap: balance;
+  }
+
+  h3 {
+    font-family: var(--font-heading), ui-serif, Georgia, serif;
+    font-size: var(--text-h3);
+    line-height: var(--text-h3--line-height);
+    letter-spacing: var(--text-h3--letter-spacing);
+    font-weight: var(--text-h3--font-weight);
+  }
+
+  h4 {
+    font-family: var(--font-heading), ui-serif, Georgia, serif;
+    font-size: var(--text-h4);
+    line-height: var(--text-h4--line-height);
+    letter-spacing: var(--text-h4--letter-spacing);
+    font-weight: var(--text-h4--font-weight);
+  }
+
+  p {
+    font-size: var(--text-body);
+    line-height: var(--text-body--line-height);
+    letter-spacing: var(--text-body--letter-spacing);
+  }
+}
