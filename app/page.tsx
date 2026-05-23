@@ -1,3 +1,5 @@
+import { AboutSection } from "@/sections/AboutSection";
+import { ContactSection } from "@/sections/ContactSection";
 import { ExperiencesSection } from "@/sections/ExperiencesSection";
 import { GallerySection } from "@/sections/GallerySection";
 import { HeroSection } from "@/sections/HeroSection";
@@ -13,6 +15,8 @@ export default function Home() {
       <GallerySection />
       <ExperiencesSection />
       <TestimonialsSection />
+      <AboutSection />
+      <ContactSection />
     </main>
   );
 }

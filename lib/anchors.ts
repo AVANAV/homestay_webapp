@@ -7,6 +7,8 @@ export const anchors = {
   gallery: "#gallery",
   experiences: "#experiences",
   testimonials: "#testimonials",
+  about: "#about",
+  contact: "#contact",
   book: "#book",
 } as const;
 
