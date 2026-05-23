@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
-import { motion } from "framer-motion";
+import { motion, useReducedMotion } from "framer-motion";
 import { Menu, MessageCircle } from "lucide-react";
 
 import { Container } from "@/components/ui/Container";
@@ -28,6 +28,7 @@ import {
   useAccessibleVariants,
 } from "@/components/ui/motion";
 import { Overline } from "@/components/ui/Typography";
+import { handleAnchorClick, resolveHashHref } from "@/lib/anchors";
 import { navItems, siteConfig, whatsappHref } from "@/lib/nav-config";
 import { useScrolled } from "@/hooks/use-scrolled";
 import { cn } from "@/lib/utils";
@@ -48,13 +49,24 @@ function NavLink({
   onClick?: () => void;
 }) {
   const pathname = usePathname();
+  const prefersReduced = useReducedMotion();
+  const resolvedHref = resolveHashHref(href, pathname);
   const isActive =
-    href === "/" ? pathname === "/" : pathname.startsWith(href);
+    href === "/"
+      ? pathname === "/"
+      : href.startsWith("#")
+        ? false
+        : pathname.startsWith(href);
 
   return (
     <Link
-      href={href}
-      onClick={onClick}
+      href={resolvedHref}
+      onClick={(e) => {
+        if (href.startsWith("#")) {
+          handleAnchorClick(e, href, pathname, prefersReduced ?? false);
+        }
+        onClick?.();
+      }}
       aria-current={isActive ? "page" : undefined}
       className={cn(
         "relative inline-flex min-h-11 items-center rounded-lg px-3 py-2 text-sm font-medium tracking-wide transition-colors touch-manipulation",

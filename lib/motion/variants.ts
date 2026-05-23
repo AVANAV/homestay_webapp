@@ -71,25 +71,22 @@ export const heroReveal: Variants = {
 export const heroRevealReduced = toReducedVariants(heroReveal);
 
 /* —— stagger —— */
+/** Parent orchestrates children only — avoid opacity:0 on container (hides all children) */
 export const staggerContainer: Variants = {
-  hidden: { opacity: 0 },
+  hidden: {},
   visible: {
-    opacity: 1,
     transition: {
       staggerChildren: 0.1,
       delayChildren: 0.14,
-      when: "beforeChildren",
     },
   },
 };
 export const staggerContainerReduced: Variants = {
-  hidden: { opacity: 0 },
+  hidden: {},
   visible: {
-    opacity: 1,
     transition: {
       staggerChildren: 0.04,
       delayChildren: 0.06,
-      when: "beforeChildren",
     },
   },
 };

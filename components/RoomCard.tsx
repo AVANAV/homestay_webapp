@@ -9,6 +9,7 @@ import { Button } from "@/components/ui/button";
 import { BodyText, Overline, SectionHeading } from "@/components/ui/Typography";
 import { transition } from "@/components/ui/motion";
 import { amenityLabels } from "@/data/amenities";
+import { anchors } from "@/lib/anchors";
 import type { Room } from "@/types/room";
 import { cn } from "@/lib/utils";
 
@@ -57,10 +58,14 @@ function AmenityPreview({ room }: { room: Room }) {
 export function RoomCard({ room, className, priority = false }: RoomCardProps) {
   const prefersReduced = useReducedMotion();
 
+  const roomAnchor = anchors.room(room.slug);
+
   return (
     <motion.article
+      id={`room-${room.slug}`}
       data-slot="room-card"
       className={cn(
+        "scroll-mt-[var(--scroll-anchor-offset)]",
         "group/card flex h-full flex-col overflow-hidden rounded-xl",
         "bg-card text-card-foreground ring-1 ring-border/60",
         "shadow-sm shadow-night/5",
@@ -71,7 +76,7 @@ export function RoomCard({ room, className, priority = false }: RoomCardProps) {
       }
     >
       <Link
-        href="#rooms"
+        href={roomAnchor}
         className="relative block aspect-4/3 overflow-hidden touch-manipulation focus-visible:outline-none focus-visible:ring-3 focus-visible:ring-ring/50 focus-visible:ring-offset-2 focus-visible:ring-offset-card"
       >
         <Image
@@ -100,7 +105,7 @@ export function RoomCard({ room, className, priority = false }: RoomCardProps) {
         <div className="flex flex-col gap-2">
           <SectionHeading as="h3" spacing="none" className="text-h3 sm:text-h4">
             <Link
-              href="#rooms"
+              href={roomAnchor}
               className="touch-manipulation transition-colors hover:text-copper focus-visible:outline-none focus-visible:ring-3 focus-visible:ring-ring/50"
             >
               {room.name}

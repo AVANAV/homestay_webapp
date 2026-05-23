@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { motion, useReducedMotion } from "framer-motion";
 import { ArrowRight, ChevronDown, MessageCircle } from "lucide-react";
 
@@ -24,6 +25,7 @@ import {
   transition,
   useAccessibleVariants,
 } from "@/components/ui/motion";
+import { anchors, handleAnchorClick } from "@/lib/anchors";
 import { heroContent } from "@/lib/hero-content";
 import { siteConfig, whatsappHref } from "@/lib/nav-config";
 import { cn } from "@/lib/utils";
@@ -54,6 +56,9 @@ function HeroBackground() {
 }
 
 function HeroCTAs() {
+  const pathname = usePathname();
+  const prefersReduced = useReducedMotion();
+
   return (
     <div className="flex w-full flex-col gap-3 sm:max-w-md sm:flex-row sm:gap-3">
       <Button
@@ -72,7 +77,19 @@ function HeroCTAs() {
         size="lg"
         className="min-h-12 w-full touch-manipulation border-parchment/35 bg-parchment/10 text-parchment hover:bg-parchment/20 hover:text-parchment sm:w-auto sm:min-w-42"
       >
-        <Link href="/rooms">{heroContent.secondaryCta}</Link>
+        <Link
+          href={anchors.rooms}
+          onClick={(e) =>
+            handleAnchorClick(
+              e,
+              anchors.rooms,
+              pathname,
+              prefersReduced ?? false
+            )
+          }
+        >
+          {heroContent.secondaryCta}
+        </Link>
       </Button>
     </div>
   );

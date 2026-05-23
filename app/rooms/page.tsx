@@ -1,9 +1,6 @@
-import { RoomsSection } from "@/sections/RoomsSection";
+import { redirect } from "next/navigation";
 
+/** Legacy route — rooms live on the homepage for now */
 export default function RoomsPage() {
-  return (
-    <main className="bg-background min-h-screen">
-      <RoomsSection />
-    </main>
-  );
+  redirect("/#rooms");
 }

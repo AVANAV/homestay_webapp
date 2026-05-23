@@ -1,3 +1,5 @@
+import { ExperiencesSection } from "@/sections/ExperiencesSection";
+import { GallerySection } from "@/sections/GallerySection";
 import { HeroSection } from "@/sections/HeroSection";
 import { RoomsSection } from "@/sections/RoomsSection";
 
@@ -7,6 +9,8 @@ export default function Home() {
       <HeroSection />
       <div id="after-hero" className="h-px w-full scroll-mt-0" aria-hidden />
       <RoomsSection />
+      <GallerySection />
+      <ExperiencesSection />
     </main>
   );
 }

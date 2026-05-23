@@ -17,11 +17,11 @@ export const viewport = {
     amount: 0.15,
     margin: "0px 0px 0px 0px",
   },
-  /** Dense grids — smaller intersection threshold */
+  /** Dense grids & card lists — fire with minimal intersection */
   compact: {
     once: true,
-    amount: 0.12,
-    margin: "0px 0px -5% 0px",
+    amount: 0.05,
+    margin: "0px",
   },
   /** Full visibility before animating (galleries) */
   full: {

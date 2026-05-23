@@ -117,6 +117,9 @@
   /* —— Container widths (utilities: max-w-homestay, max-w-cinema) —— */
   --container-homestay: 90rem;
   --container-cinema: 100rem;
+
+  /* Sticky navbar + safe-area — hash scroll offset */
+  --scroll-anchor-offset: calc(5.5rem + env(safe-area-inset-top, 0px));
 }
 
 @layer utilities {
