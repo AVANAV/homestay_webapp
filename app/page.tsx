@@ -2,6 +2,7 @@ import { ExperiencesSection } from "@/sections/ExperiencesSection";
 import { GallerySection } from "@/sections/GallerySection";
 import { HeroSection } from "@/sections/HeroSection";
 import { RoomsSection } from "@/sections/RoomsSection";
+import { TestimonialsSection } from "@/sections/TestimonialsSection";
 
 export default function Home() {
   return (
@@ -11,6 +12,7 @@ export default function Home() {
       <RoomsSection />
       <GallerySection />
       <ExperiencesSection />
+      <TestimonialsSection />
     </main>
   );
 }

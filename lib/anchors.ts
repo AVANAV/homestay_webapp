@@ -6,6 +6,7 @@ export const anchors = {
   room: (slug: string) => `#room-${slug}`,
   gallery: "#gallery",
   experiences: "#experiences",
+  testimonials: "#testimonials",
   book: "#book",
 } as const;
 
