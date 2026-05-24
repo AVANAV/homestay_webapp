@@ -23,8 +23,9 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Mountain Homestay",
-  description: "A luxury mountain retreat rooted in warm hospitality",
+  title: "Veera Homestay",
+  description:
+    "A luxury mountain homestay in Patal Bhuvaneshwar rooted in warm hospitality",
 };
 
 export default function RootLayout({
@@ -37,7 +38,7 @@ export default function RootLayout({
       lang="en"
       className={`${dmSans.variable} ${cormorant.variable} ${geistMono.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col">
+      <body className="min-h-full flex flex-col overflow-x-clip">
         <Providers>
           <Navbar />
           {children}

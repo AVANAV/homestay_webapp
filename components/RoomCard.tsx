@@ -10,6 +10,7 @@ import { BodyText, Overline, SectionHeading } from "@/components/ui/Typography";
 import { transition } from "@/components/ui/motion";
 import { amenityLabels } from "@/data/amenities";
 import { anchors } from "@/lib/anchors";
+import { siteConfig } from "@/lib/nav-config";
 import type { Room } from "@/types/room";
 import { cn } from "@/lib/utils";
 
@@ -21,10 +22,6 @@ type RoomCardProps = {
   className?: string;
   priority?: boolean;
 };
-
-function getBookHref(room: Room) {
-  return `/contact?room=${room.slug}#book`;
-}
 
 function AmenityPreview({ room }: { room: Room }) {
   const preview = room.amenities.slice(0, AMENITY_PREVIEW_DESKTOP);
@@ -106,7 +103,7 @@ export function RoomCard({ room, className, priority = false }: RoomCardProps) {
           <SectionHeading as="h3" spacing="none" className="text-h3 sm:text-h4">
             <Link
               href={roomAnchor}
-              className="touch-manipulation transition-colors hover:text-copper focus-visible:outline-none focus-visible:ring-3 focus-visible:ring-ring/50"
+              className="inline-flex min-h-11 items-center touch-manipulation transition-colors hover:text-copper focus-visible:outline-none focus-visible:ring-3 focus-visible:ring-ring/50"
             >
               {room.name}
             </Link>
@@ -141,10 +138,10 @@ export function RoomCard({ room, className, priority = false }: RoomCardProps) {
             size="lg"
             className="min-h-11 w-full touch-manipulation sm:w-auto sm:min-w-36"
           >
-            <Link href={getBookHref(room)}>
+            <a href={siteConfig.bookHref} target="_blank" rel="noreferrer">
               Book Now
               <ArrowRight className="size-4" aria-hidden />
-            </Link>
+            </a>
           </Button>
         </div>
       </div>

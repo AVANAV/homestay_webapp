@@ -128,7 +128,7 @@ export function FinalCtaSection() {
               <a
                 href={primaryCta.href}
                 target="_blank"
-                rel="noopener noreferrer"
+                rel="noreferrer"
                 aria-label={`${primaryCta.label} via WhatsApp (opens in a new tab)`}
               >
                 {primaryCta.label}

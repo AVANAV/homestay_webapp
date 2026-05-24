@@ -1,7 +1,6 @@
 "use client";
 
 import Image from "next/image";
-import Link from "next/link";
 import { motion } from "framer-motion";
 import { ArrowRight, Soup, Sunrise, type LucideIcon } from "lucide-react";
 
@@ -173,10 +172,10 @@ export function ExperiencesSection() {
             size="lg"
             className="min-h-11 w-full touch-manipulation border-border bg-card/80 sm:w-auto sm:min-w-52"
           >
-            <Link href={siteConfig.bookHref}>
+            <a href={siteConfig.bookHref} target="_blank" rel="noreferrer">
               {experiencesSectionContent.cta}
               <ArrowRight className="size-4" aria-hidden />
-            </Link>
+            </a>
           </Button>
         </motion.div>
       </motion.div>

@@ -8,16 +8,10 @@ export const navItems = [
 ] as const;
 
 export const siteConfig = {
-  name: "Mountain Homestay",
-  tagline: "Valley Retreat",
-  bookHref: "/contact#book",
+  name: "Veera Homestay",
+  tagline: "Patal Bhuvaneshwar",
+  bookHref:
+    "https://wa.me/917088543104?text=Hello%20Veera%20Homestay,%20I%20would%20like%20to%20inquire%20about%20booking%20a%20stay.",
 } as const;
 
-const whatsappNumber =
-  process.env.NEXT_PUBLIC_WHATSAPP_NUMBER ?? "917088543104";
-
-const whatsappMessage = encodeURIComponent(
-  "Hello, I'd like to inquire about a stay at Mountain Homestay.",
-);
-
-export const whatsappHref = `https://wa.me/${whatsappNumber}?text=${whatsappMessage}`;
+export const whatsappHref = siteConfig.bookHref;

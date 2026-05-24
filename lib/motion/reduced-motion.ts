@@ -12,14 +12,12 @@ export function toReducedVariants(variants: Variants): Variants {
       continue;
     }
 
-    const {
-      x: _x,
-      y: _y,
-      scale: _scale,
-      rotate: _rotate,
-      filter: _filter,
-      ...rest
-    } = value as Record<string, unknown>;
+    const rest = { ...(value as Record<string, unknown>) };
+    delete rest.x;
+    delete rest.y;
+    delete rest.scale;
+    delete rest.rotate;
+    delete rest.filter;
 
     reduced[key] = {
       ...rest,

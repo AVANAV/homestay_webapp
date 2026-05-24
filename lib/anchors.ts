@@ -9,7 +9,6 @@ export const anchors = {
   testimonials: "#testimonials",
   about: "#about",
   contact: "#contact",
-  book: "#book",
 } as const;
 
 /** Resolves hash links to `/#section` when not on the homepage */

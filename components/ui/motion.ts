@@ -1,5 +1,5 @@
 /**
- * Framer Motion design tokens & variants for Mountain Homestay.
+ * Framer Motion design tokens & variants for Veera Homestay.
  *
  * @example
  * import { motion } from "framer-motion";

@@ -109,7 +109,9 @@ function BookButton({
         className
       )}
     >
-      <Link href={siteConfig.bookHref}>Book Now</Link>
+      <a href={siteConfig.bookHref} target="_blank" rel="noreferrer">
+        Book Now
+      </a>
     </Button>
   );
 }
@@ -139,7 +141,7 @@ function WhatsAppButton({
       <a
         href={whatsappHref}
         target="_blank"
-        rel="noopener noreferrer"
+        rel="noreferrer"
         aria-label="Chat on WhatsApp"
       >
         <MessageCircle aria-hidden />
@@ -158,6 +160,8 @@ function MobileNav({
   open: boolean;
   onOpenChange: (open: boolean) => void;
 }) {
+  const pathname = usePathname();
+  const prefersReduced = useReducedMotion();
   const containerVariants = useAccessibleVariants(
     staggerContainer,
     staggerContainerReduced
@@ -216,8 +220,18 @@ function MobileNav({
           {navItems.map((item) => (
             <motion.div key={item.href} variants={itemVariants}>
               <Link
-                href={item.href}
-                onClick={() => onOpenChange(false)}
+                href={resolveHashHref(item.href, pathname)}
+                onClick={(e) => {
+                  if (item.href.startsWith("#")) {
+                    handleAnchorClick(
+                      e,
+                      item.href,
+                      pathname,
+                      prefersReduced ?? false
+                    );
+                  }
+                  onOpenChange(false);
+                }}
                 className="flex min-h-12 items-center rounded-lg px-3 font-display text-xl font-medium text-foreground transition-colors touch-manipulation hover:bg-muted focus-visible:outline-none focus-visible:ring-3 focus-visible:ring-ring/50"
               >
                 {item.label}

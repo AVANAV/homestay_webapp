@@ -1,3 +1,5 @@
+import { siteConfig } from "@/lib/nav-config";
+
 export const contactSectionContent = {
   overline: "Get In Touch",
   heading: "Come stay with us",
@@ -5,7 +7,7 @@ export const contactSectionContent = {
   whatsapp: {
     label: "Chat on WhatsApp",
     number: "+91 70885 43104",
-    href: "https://wa.me/917088543104?text=Hello%2C%20I%27d%20like%20to%20enquire%20about%20a%20stay%20at%20Veera%20Homestay.",
+    href: siteConfig.bookHref,
   },
   phone: {
     label: "Phone",

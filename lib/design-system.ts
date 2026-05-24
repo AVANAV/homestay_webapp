@@ -1,5 +1,5 @@
 /**
- * Mountain Homestay design system — programmatic reference.
+ * Veera Homestay design system — programmatic reference.
  * Source of truth for colors & type lives in `app/globals.css` and `app/design-system.css`.
  */
 

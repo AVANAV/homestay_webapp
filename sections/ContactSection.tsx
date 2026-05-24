@@ -210,7 +210,7 @@ export function ContactSection() {
             <a
               href={whatsapp.href}
               target="_blank"
-              rel="noopener noreferrer"
+              rel="noreferrer"
               aria-label={`${whatsapp.label} — ${whatsapp.number} (opens in WhatsApp)`}
               className={cn(
                 "group flex items-center gap-4 rounded-xl p-5",

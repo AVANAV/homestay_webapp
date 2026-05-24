@@ -66,10 +66,10 @@ function HeroCTAs() {
         size="lg"
         className="min-h-12 w-full touch-manipulation bg-copper text-parchment shadow-md hover:bg-copper-light hover:text-parchment sm:w-auto sm:min-w-42"
       >
-        <Link href={siteConfig.bookHref}>
+        <a href={siteConfig.bookHref} target="_blank" rel="noreferrer">
           {heroContent.primaryCta}
           <ArrowRight className="size-4" aria-hidden />
-        </Link>
+        </a>
       </Button>
       <Button
         asChild
@@ -102,18 +102,18 @@ function HeroWhatsAppFab() {
     <motion.a
       href={whatsappHref}
       target="_blank"
-      rel="noopener noreferrer"
+      rel="noreferrer"
       aria-label="Chat on WhatsApp"
+      style={{
+        right: "max(1rem, env(safe-area-inset-right, 0px))",
+        bottom: "max(1.25rem, env(safe-area-inset-bottom, 0px))",
+      }}
       className={cn(
         "fixed z-40 flex size-11 items-center justify-center rounded-full",
         "bg-[#25D366] text-white shadow-lg shadow-night/20",
         "ring-1 ring-white/20",
         "touch-manipulation",
         "focus-visible:outline-none focus-visible:ring-3 focus-visible:ring-parchment/50",
-        /* Mobile: bottom-24 right-4 + safe-area */
-        "right-[max(1rem,env(safe-area-inset-right,0px))] bottom-[max(6rem,calc(6rem+env(safe-area-inset-bottom,0px)))]",
-        /* Desktop: bottom-6 right-6 + safe-area */
-        "md:right-[max(1.5rem,calc(1.5rem+env(safe-area-inset-right,0px)))] md:bottom-[max(1.5rem,calc(1.5rem+env(safe-area-inset-bottom,0px)))]"
       )}
       initial={{ opacity: 0, scale: 0.92 }}
       animate={{ opacity: 1, scale: 1 }}
@@ -144,6 +144,7 @@ function HeroScrollIndicator() {
       aria-label="Scroll to explore more"
       className={cn(
         "absolute inset-s-1/2 z-10 flex -translate-x-1/2 flex-col items-center gap-1",
+        "min-h-11 min-w-11 justify-center",
         "touch-manipulation text-parchment/70 transition-colors hover:text-parchment",
         "bottom-[max(1rem,env(safe-area-inset-bottom))]",
         "focus-visible:outline-none focus-visible:ring-3 focus-visible:ring-parchment/40"
