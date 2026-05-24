@@ -23,9 +23,48 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Veera Homestay",
+  title: "Veera Homestay | Himalayan Retreat in Patal Bhuvaneshwar",
   description:
-    "A luxury mountain homestay in Patal Bhuvaneshwar rooted in warm hospitality",
+    "Experience peaceful Himalayan mornings, authentic mountain hospitality, valley views, and warm cedar stays at Veera Homestay in Patal Bhuvaneshwar, Uttarakhand.",
+
+  keywords: [
+    "Veera Homestay",
+    "Patal Bhuvaneshwar homestay",
+    "Uttarakhand mountain stay",
+    "Himalayan retreat",
+    "luxury homestay Uttarakhand",
+    "mountain homestay India",
+    "peaceful valley stay",
+  ],
+
+  openGraph: {
+    title: "Veera Homestay",
+    description:
+      "A cinematic Himalayan retreat rooted in warm hospitality and peaceful mountain living.",
+    url: "https://your-domain.vercel.app",
+    siteName: "Veera Homestay",
+    images: [
+      {
+        url: "/og-image.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Veera Homestay Himalayan View",
+      },
+    ],
+    locale: "en_IN",
+    type: "website",
+  },
+icons: {
+  icon: "/favicon.ico",
+  apple: "/apple-touch-icon.png",
+},
+  twitter: {
+    card: "summary_large_image",
+    title: "Veera Homestay",
+    description:
+      "Peaceful Himalayan mornings and warm mountain hospitality in Uttarakhand.",
+    images: ["/og-image.jpg"],
+  },
 };
 
 export default function RootLayout({
