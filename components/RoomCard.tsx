@@ -43,6 +43,7 @@ function AmenityPreview({ room }: { room: Room }) {
           {amenityLabels[key]}
         </li>
       ))}
+
       {remaining > 0 && (
         <li className="rounded-full bg-linen px-2.5 py-1 text-[0.6875rem] font-medium text-stone">
           +{remaining} more
@@ -52,7 +53,11 @@ function AmenityPreview({ room }: { room: Room }) {
   );
 }
 
-export function RoomCard({ room, className, priority = false }: RoomCardProps) {
+export function RoomCard({
+  room,
+  className,
+  priority = false,
+}: RoomCardProps) {
   const prefersReduced = useReducedMotion();
 
   const roomAnchor = anchors.room(room.slug);
@@ -69,7 +74,9 @@ export function RoomCard({ room, className, priority = false }: RoomCardProps) {
         className,
       )}
       whileHover={
-        prefersReduced ? undefined : { y: -4, transition: transition.enter }
+        prefersReduced
+          ? undefined
+          : { y: -4, transition: transition.enter }
       }
     >
       <Link
@@ -84,10 +91,12 @@ export function RoomCard({ room, className, priority = false }: RoomCardProps) {
           sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
           className="object-cover object-center transition-transform duration-700 ease-out group-hover/card:scale-[1.03]"
         />
+
         <div
           className="absolute inset-0 bg-linear-to-t from-night/50 via-night/10 to-transparent"
           aria-hidden
         />
+
         {room.featured && (
           <Overline
             spacing="none"
@@ -100,7 +109,11 @@ export function RoomCard({ room, className, priority = false }: RoomCardProps) {
 
       <div className="flex flex-1 flex-col gap-3 p-4 sm:gap-3.5 sm:p-5">
         <div className="flex flex-col gap-2">
-          <SectionHeading as="h3" spacing="none" className="text-h3 sm:text-h4">
+          <SectionHeading
+            as="h3"
+            spacing="none"
+            className="text-h3 sm:text-h4"
+          >
             <Link
               href={roomAnchor}
               className="inline-flex min-h-11 items-center touch-manipulation transition-colors hover:text-copper focus-visible:outline-none focus-visible:ring-3 focus-visible:ring-ring/50"
@@ -120,17 +133,18 @@ export function RoomCard({ room, className, priority = false }: RoomCardProps) {
 
         <div className="flex items-center gap-2 text-stone">
           <Users className="size-4 shrink-0 opacity-80" aria-hidden />
-          <span className="text-small font-medium">{room.occupancy.label}</span>
+          <span className="text-small font-medium">
+            {room.occupancy.label}
+          </span>
         </div>
 
         <AmenityPreview room={room} />
 
         <div className="mt-auto flex flex-col gap-3 border-t border-border/50 pt-4 sm:flex-row sm:items-center sm:justify-between">
           <div className="flex flex-col gap-0.5">
-            <span className="font-display text-xl font-medium text-foreground sm:text-2xl">
-              {room.price.label.split(" / ")[0]}
+            <span className="text-small text-stone">
+              Seasonal pricing available on inquiry
             </span>
-            <span className="text-small text-muted-foreground">per night</span>
           </div>
 
           <Button
@@ -138,7 +152,11 @@ export function RoomCard({ room, className, priority = false }: RoomCardProps) {
             size="lg"
             className="min-h-11 w-full touch-manipulation sm:w-auto sm:min-w-36"
           >
-            <a href={siteConfig.bookHref} target="_blank" rel="noreferrer">
+            <a
+              href={siteConfig.bookHref}
+              target="_blank"
+              rel="noreferrer"
+            >
               Book Now
               <ArrowRight className="size-4" aria-hidden />
             </a>
