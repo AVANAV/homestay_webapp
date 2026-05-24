@@ -18,11 +18,7 @@ export const aboutSectionContent = {
       label: "Rooms",
       description: "Cedar, mist & morning light",
     },
-    {
-      value: "5★",
-      label: "Guest rating",
-      description: "Google · Booking.com",
-    },
+    
     {
       value: "15+",
       label: "Years hosting",

@@ -109,9 +109,12 @@ function BookButton({
         className
       )}
     >
-      <a href={siteConfig.bookHref} target="_blank" rel="noreferrer">
-        Book Now
-      </a>
+    <a
+  href="tel:+91 70885 43104"
+  aria-label="Call Veera Homestay"
+>
+  Call us
+</a>
     </Button>
   );
 }
