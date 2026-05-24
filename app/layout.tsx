@@ -41,7 +41,7 @@ export const metadata: Metadata = {
     title: "Veera Homestay",
     description:
       "A cinematic Himalayan retreat rooted in warm hospitality and peaceful mountain living.",
-    url: "https://your-domain.vercel.app",
+    url: "https://homestay-webapp.vercel.app/",
     siteName: "Veera Homestay",
     images: [
       {
