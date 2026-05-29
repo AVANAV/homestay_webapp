@@ -24,7 +24,10 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://www.veerahomestay.in"),
+
   title: "Veera Homestay | Himalayan Retreat in Patal Bhuvaneshwar",
+
   description:
     "Experience peaceful Himalayan mornings, authentic mountain hospitality, valley views, and warm cedar stays at Veera Homestay in Patal Bhuvaneshwar, Uttarakhand.",
 
@@ -33,10 +36,15 @@ export const metadata: Metadata = {
     "Patal Bhuvaneshwar homestay",
     "Uttarakhand mountain stay",
     "Himalayan retreat",
-    "luxury homestay Uttarakhand",
     "mountain homestay India",
     "peaceful valley stay",
+    "homestay in Pithoragarh",
+    "best homestay in Uttarakhand",
   ],
+
+  alternates: {
+    canonical: "https://www.veerahomestay.in",
+  },
 
   openGraph: {
     title: "Veera Homestay",
@@ -44,6 +52,9 @@ export const metadata: Metadata = {
       "A cinematic Himalayan retreat rooted in warm hospitality and peaceful mountain living.",
     url: "https://www.veerahomestay.in",
     siteName: "Veera Homestay",
+    locale: "en_IN",
+    type: "website",
+
     images: [
       {
         url: "/og-image.jpg",
@@ -52,19 +63,19 @@ export const metadata: Metadata = {
         alt: "Veera Homestay Himalayan View",
       },
     ],
-    locale: "en_IN",
-    type: "website",
   },
-icons: {
-  icon: "/favicon.ico",
-  apple: "/apple-touch-icon.png",
-},
+
   twitter: {
     card: "summary_large_image",
     title: "Veera Homestay",
     description:
       "Peaceful Himalayan mornings and warm mountain hospitality in Uttarakhand.",
     images: ["/og-image.jpg"],
+  },
+
+  icons: {
+    icon: "/favicon.ico",
+    apple: "/apple-touch-icon.png",
   },
 };
 
@@ -78,22 +89,23 @@ export default function RootLayout({
       lang="en"
       className={`${dmSans.variable} ${cormorant.variable} ${geistMono.variable} h-full antialiased`}
     >
-    
-  <head>
-    <Script
-      async
-      src="https://www.googletagmanager.com/gtag/js?id=G-1C4N14Z6ZB"
-    />
-   <Script id="google-analytics" strategy="afterInteractive">
-      {`
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-        gtag('config', 'G-1C4N14Z6ZB');
-      `}
-    </Script>
-  </head>
       <body className="min-h-full flex flex-col overflow-x-clip">
+
+        {/* Google Analytics */}
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=G-1C4N14Z6ZB"
+          strategy="afterInteractive"
+        />
+
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-1C4N14Z6ZB');
+          `}
+        </Script>
+
         <Providers>
           <Navbar />
           {children}
